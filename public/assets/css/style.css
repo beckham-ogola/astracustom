@@ -1,0 +1,100 @@
+/* ============================================================
+   AstraCampus — Design System
+   ============================================================ */
+
+body { font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; }
+.font-display { font-family: 'Lexend', 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; }
+
+/* ---- Motion ---- */
+@keyframes fadein { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+.animate-fadein { animation: fadein .2s ease-out; }
+[data-tab-panel-group] { animation: fadein .18s ease-out; }
+
+/* ---- Reusable card / button primitives (used in hand-built sections) ---- */
+.card {
+  background: #fff;
+  border: 1px solid #f1f5f9;
+  border-radius: 1rem;
+  box-shadow: 0 1px 2px rgba(15,23,42,.04), 0 1px 3px rgba(15,23,42,.06);
+  padding: 1.25rem;
+}
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .4rem;
+  font-weight: 600; font-size: .875rem; padding: .625rem 1.25rem;
+  border-radius: .75rem; transition: all .15s ease; border: none; cursor: pointer;
+}
+.btn-primary { background: #6238e0; color: #fff; box-shadow: 0 4px 10px -2px rgba(98,56,224,.35); }
+.btn-primary:hover { background: #502dc4; }
+.btn-secondary { background: #f1f5f9; color: #334155; }
+.btn-secondary:hover { background: #e2e8f0; }
+.btn-danger { background: #fef2f2; color: #dc2626; }
+.btn-danger:hover { background: #fee2e2; }
+.btn-success { background: #059669; color: #fff; box-shadow: 0 4px 10px -2px rgba(5,150,105,.35); }
+.btn-success:hover { background: #047857; }
+
+/* ---- Badges ---- */
+.badge {
+  display: inline-flex; align-items: center; gap: .3rem;
+  padding: .2rem .65rem; border-radius: 9999px;
+  font-size: .7rem; font-weight: 700; letter-spacing: .01em;
+}
+.badge-active { background: #ede9fe; color: #6238e0; }
+.badge-paid { background: #d1fae5; color: #047857; }
+.badge-sponsored { background: #fef3c7; color: #92400e; }
+.badge-graduated { background: #dbeafe; color: #1e40af; }
+.badge-withdrawn { background: #f1f5f9; color: #475569; }
+
+.balance-positive { color: #dc2626; font-weight: 700; }
+.balance-zero { color: #059669; font-weight: 700; }
+
+/* ---- Modals ---- */
+.modal-backdrop {
+  position: fixed; inset: 0; background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(2px);
+  display: flex; align-items: center; justify-content: center; z-index: 50; padding: 1rem;
+}
+.modal-box {
+  background: #fff; border-radius: 1.25rem; max-width: 640px; width: 100%;
+  max-height: 90vh; overflow-y: auto;
+  box-shadow: 0 25px 50px -12px rgba(15,23,42,.35);
+  animation: fadein .18s ease-out;
+}
+
+/* ---- Spinner ---- */
+.spinner {
+  border: 3px solid #ece8fe; border-top-color: #6238e0; border-radius: 50%;
+  width: 1.1rem; height: 1.1rem; animation: spin .7s linear infinite; display: inline-block;
+  vertical-align: -2px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ---- Tab strip (Students / Billing / Payments hubs) ---- */
+.tab-strip {
+  display: flex; gap: .4rem; overflow-x: auto; padding: .25rem .1rem 1rem;
+  -ms-overflow-style: none; scrollbar-width: none;
+}
+.tab-strip::-webkit-scrollbar { display: none; }
+.tab-btn {
+  flex-shrink: 0; padding: .55rem 1.1rem; border-radius: 9999px;
+  font-size: .8rem; font-weight: 600; color: #64748b; background: #fff;
+  border: 1px solid #e2e8f0; white-space: nowrap; cursor: pointer;
+  transition: all .15s ease;
+}
+.tab-btn:hover { border-color: #cbd5e1; }
+.tab-btn.tab-active { background: #6238e0; color: #fff; border-color: #6238e0; box-shadow: 0 4px 10px -2px rgba(98,56,224,.35); }
+
+/* ---- Stat tiles (dashboard) ---- */
+.stat-tile { border-radius: 1rem; padding: 1.1rem 1.25rem; color: #fff; position: relative; overflow: hidden; }
+.stat-tile i.stat-icon { position: absolute; right: .75rem; top: .75rem; font-size: 1.75rem; opacity: .28; }
+
+/* ---- Bill checklist rows (admission / bill a student) ---- */
+.bill-row { display: flex; align-items: center; gap: .75rem; padding: .7rem .25rem; border-bottom: 1px solid #f1f5f9; }
+.bill-row:last-child { border-bottom: none; }
+
+/* ---- Print styles ---- */
+@media print {
+  header, nav, footer, .no-print { display: none !important; }
+  main { padding: 0 !important; margin: 0 !important; max-width: 100% !important; }
+  body { background: #fff !important; padding-bottom: 0 !important; }
+  .print-area { box-shadow: none !important; border: none !important; }
+}
